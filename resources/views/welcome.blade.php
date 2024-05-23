@@ -89,11 +89,43 @@
       Categories
     </h2>
     <div class="d-flex" style="flex-wrap:wrap">
-      <div class="card p-4 rounded-0">
-        <img width="100px" src="https://static-01.daraz.pk/p/0dcc3f452a783a0f0b2170ddc443d5d1.jpg" alt="">
+
+      @foreach ($categories as $item)
+     
+      <div class="card p-3 rounded-0">
+        <img style="object-fit: cover" width="100px" height="80px" src="{{asset('/storage/' . $item->image)}}" alt="">
+        <p class="text-center my-1 p-0 text-capitalize">{{$item->name}}</p>
       </div>
+      @endforeach
+
     </div>
   </div>
+
+
+  <div class="container py-5">
+    <h2 class="display-6">
+      Products
+    </h2>
+    <div class="d-flex gap-2" style="flex-wrap:wrap">
+
+      @foreach ($products as $item)
+     
+      <a href="/single-product/{{$item->id}}" class="card text-decoration-none rounded-0">
+        <img style="object-fit: cover" width="200px" height="300px" src="{{asset('/storage/' . $item->image)}}" alt="">
+        <div class="p-2">
+          <p class="my-1 p-0 text-capitalize">{{$item->name}}</p>
+        <p class="fw-bold" style="color:orange">
+          Rs. {{$item->price}}
+        </p>
+        </div>
+      </a>
+      @endforeach
+
+    </div>
+  </div>
+
+
+  
 
 
 </x-layout>

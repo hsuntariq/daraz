@@ -15,7 +15,9 @@
         <div class="row rounded-4" style="height: 100%;">
             <div  class="col-lg-2 py-4  bg-dark text-white" style="height: 100%;border-radius:20px 0 0 20px">
                 <div class="d-flex align-items-center justify-content-center flex-column" style="height: 100%;">
-                    <img width="100px" class="mx-auto d-block" src="https://icms-image.slatic.net/images/ims-web/e650d6ca-1841-4646-b0e9-4ddbf2beb731.png" alt="">
+                    <a href="/" class="text-white text-decoration-none">
+                        <img width="100px" class="mx-auto d-block" src="https://icms-image.slatic.net/images/ims-web/e650d6ca-1841-4646-b0e9-4ddbf2beb731.png" alt="">
+                    </a>
                     <ul style="height: 100%;" class="d-flex p-2  flex-column fs-5 gap-3 list-unstyled">
                     <a href="/seller-dashboard" class="text-white text-decoration-none">
 
@@ -24,8 +26,13 @@
                     <a href="/seller-add-category" class="text-white text-decoration-none">
                         
                         <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> Add Category</li>
-                    </a>    
-                        <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> Add product</li>
+                    </a>
+                       
+                    <a href="/seller-add-product" class="text-white text-decoration-none">
+                        
+                        <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> Add Product</li>
+                    </a>
+                       
                         <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> View Product</li>
                         <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> View Category</li>
                         <li style="width:max-content" class="p-2 px-5 list rounded-4"><i class="bi bi-moon-stars-fill"></i> Analytics</li>
