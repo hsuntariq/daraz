@@ -21,18 +21,37 @@
             <input style="box-shadow: 0 0 0 0 ;" placeholder="Search in Daraz" class="form-control bg-transparent border-0" " type="search" name="search" id="">
             <div style="color: #F85606;background:#FFE1D2;" class="bi bi-search px-3 rounded-2"></div>
         </div>
-        <button class="btn d-flex text-white">
+        @guest
+            <button class="btn d-flex text-white">
             <div class="bi bi-person"></div>
-            <h6>Login</h6>
+            <a class="text-white text-decoration-none" href="/login">Login</a>
         </button>
         <h6>|</h6>
-        <h6>Sign Up</h6>
-        <div class="d-flex gap-1">
+        <a href="/register" class="text-white text-decoration-none" style="width: max-content">Sign Up</a>
+        @endguest
+
+        @auth
+            <button class="btn d-flex text-white" style="width:max-content">
+            <div class="bi bi-person"></div>
+            <h6>Salam {{auth()->user()->name}} </h6>
+            </button>
+        @endauth
+
+        <div class="d-flex gap-1 ms-2">
             <div class="bi bi-globe"></div>
             <h6 class="p-0 m-0">EN</h6>
         </div>
         <div class="bi bi-cart fs-5"></div>
+        @auth
+            
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="btn btn-danger ">
+                <i class="bi bi-power"></i>
+            </button>
+        </form>
+        @endauth
     </div>
-
+        
     </div>
 </div>

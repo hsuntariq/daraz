@@ -1,13 +1,18 @@
 <x-layout>
-    
+    <x-flash/>
     <x-nav/>
     <div class="container card border-0 p-5 my-5 rounded-0">
+        <form action="/cart" method="POST">
+        @csrf
         <div class="row ">
             <div class="col-lg-3">
                 <img width="100%" height="300px" src="{{asset('/storage/' . $product->image)}}" alt="">
+                <input  name="image" type="hidden" value="{{$product->image}}">
             </div>
             <div class="col-lg-6 ">
                 <h4>{{$product->desc}}</h4>
+                <input name="name" type="hidden" value="{{$product->desc}}">
+
                 <div class="d-flex">
                     <p style="font-size:0.8rem" class="text-secondary">
                         Brand: <span class="text-info">
@@ -18,6 +23,8 @@
                 <hr>
                 <div style="color:orange" class="price">
                     Rs. {{$product->price}}
+                <input type="hidden" name="price" value="{{$product->price}}">
+
                 </div>
                 <p class="text-text-secondary d-flex">
                     <strike>Rs. {{$product->old_price}}</strike>
@@ -29,19 +36,24 @@
                         Quantity
                     </p>
                     <div class="d-flex ">
-                        <button class="btn rounded-0 border">
+                        <button type="button" class="btn decrease  rounded-0 border">
                             -
                         </button>
-                        <input type="number" class="rounded-0 border text-center" style="width:20%" value="0">
-                        <button class="btn rounded-0 border">
+                        <input name="quantity" type="number" class="rounded-0 quantity border text-center" style="width:20%" value="0">
+                        <button type="button" class="btn increase rounded-0 border">
                             +
                         </button>
                         
                     </div>
                 </div>
-                <button class="btn btn-dark w-100 my-3">
+               <div class="d-flex gap-3">
+                 <button class="btn btn-warning w-100 my-3 ">
+                    Add To Cart
+                </button>
+                 <button class="btn btn-dark w-100 my-3">
                     Buy
                 </button>
+               </div>
             </div>
             <div class="col-lg-3">
                 <p class="p-0 m-0" style="font-size: 0.8rem">
@@ -79,5 +91,29 @@
 
             </div>
         </div>
+        </form>
     </div>
+
+
+    <script>
+        let inc = document.querySelector('.increase')
+        let dec = document.querySelector('.decrease')
+        let quantity = document.querySelector('.quantity')
+        count = 1;
+        quantity.value = count;
+        inc.addEventListener('click',()=>{
+            
+            count++
+            quantity.value = count; 
+        })
+        dec.addEventListener('click',()=>{
+            count--
+            if(count <= 1){
+                count = 1
+            }
+            quantity.value = count; 
+        })
+
+    </script>
+
 </x-layout>
